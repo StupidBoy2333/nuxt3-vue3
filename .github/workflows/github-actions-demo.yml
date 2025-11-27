@@ -16,3 +16,14 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: lint and test code
+        run: |
+          node -e "console.log('Hello, GitHub Actions!')"
+          npm i 
+          npm run lint
+          npm run test:remote
+
